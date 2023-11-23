@@ -7,15 +7,24 @@ class riwayat_pengaduan_page extends StatefulWidget {
   const riwayat_pengaduan_page({super.key});
 
   @override
-  State<riwayat_pengaduan_page> createState() => _diproses_PageState();
+  State<riwayat_pengaduan_page> createState() => RiwayatPengaduan();
 }
 
-class _diproses_PageState extends State<riwayat_pengaduan_page> {
+class RiwayatPengaduan extends State<riwayat_pengaduan_page> {
   int _currentIndex = 0;
   late TabController _controller;
 
+  _handleTabSelection() {
+    setState(() {
+      _currentIndex = _controller.index;
+    });
+  }
+
   @override
   void initState() {
+    _controller = TabController(
+        length: 4, vsync: context); //permasalahan pada vsync : context
+    _controller.addListener(_handleTabSelection);
     super.initState();
   }
 
@@ -72,9 +81,9 @@ class _diproses_PageState extends State<riwayat_pengaduan_page> {
                         ),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 16),
-                          child: Row(
+                          child: const Row(
                             children: [
-                              const Column(
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
@@ -96,11 +105,6 @@ class _diproses_PageState extends State<riwayat_pengaduan_page> {
                                   ),
                                 ],
                               ),
-                              const Spacer(),
-                              Image.asset(
-                                "assets/ic_logo_grey.png",
-                                height: 36,
-                              )
                             ],
                           ),
                         ),
@@ -121,10 +125,9 @@ class _diproses_PageState extends State<riwayat_pengaduan_page> {
                           controller: _controller,
                           padding: const EdgeInsets.symmetric(horizontal: 14),
                           tabs: const [
-                            Tab(text: 'Proyek Baru'),
-                            Tab(text: 'Dalam Proses'),
-                            Tab(text: 'Proyek Selesai'),
-                            Tab(text: 'Proyek Tertahan')
+                            Tab(text: 'Diproses'),
+                            Tab(text: 'Selesai'),
+                            Tab(text: 'Terkirim')
                           ],
                           onTap: (value) {
                             setState(() {
