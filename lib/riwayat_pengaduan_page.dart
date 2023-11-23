@@ -7,10 +7,11 @@ class riwayat_pengaduan_page extends StatefulWidget {
   const riwayat_pengaduan_page({super.key});
 
   @override
-  State<riwayat_pengaduan_page> createState() => RiwayatPengaduan();
+  State<riwayat_pengaduan_page> createState() => _RiwayatPengaduan();
 }
 
-class RiwayatPengaduan extends State<riwayat_pengaduan_page> {
+class _RiwayatPengaduan extends State<riwayat_pengaduan_page>
+    with TickerProviderStateMixin {
   int _currentIndex = 0;
   late TabController _controller;
 
@@ -23,7 +24,7 @@ class RiwayatPengaduan extends State<riwayat_pengaduan_page> {
   @override
   void initState() {
     _controller = TabController(
-        length: 4, vsync: context); //permasalahan pada vsync : context
+        length: 3, vsync: this); //permasalahan pada vsync : context
     _controller.addListener(_handleTabSelection);
     super.initState();
   }
@@ -70,14 +71,11 @@ class RiwayatPengaduan extends State<riwayat_pengaduan_page> {
               children: [
                 Stack(
                   children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(
-                          height: 48,
+                          height: 20,
                         ),
                         Container(
                           margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -85,25 +83,6 @@ class RiwayatPengaduan extends State<riwayat_pengaduan_page> {
                             children: [
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Haloo,",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 16),
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    "Klien A",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16),
-                                  ),
-                                ],
                               ),
                             ],
                           ),
@@ -112,22 +91,27 @@ class RiwayatPengaduan extends State<riwayat_pengaduan_page> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 40),
                 DefaultTabController(
-                    length: 4,
+                    length: 3,
                     initialIndex: _currentIndex,
                     child: Column(
                       children: [
+                        Container(
+                          color: Colors.blue,
+                        ),
                         TabBar(
                           isScrollable: true,
                           labelPadding:
                               const EdgeInsets.symmetric(horizontal: 8),
                           controller: _controller,
                           padding: const EdgeInsets.symmetric(horizontal: 14),
+                          indicatorColor: Colors.blue,
+                          unselectedLabelColor: Colors.black,
+                          labelColor: Colors.black,
                           tabs: const [
+                            Tab(text: 'Terkirim'),
                             Tab(text: 'Diproses'),
-                            Tab(text: 'Selesai'),
-                            Tab(text: 'Terkirim')
+                            Tab(text: 'Selesai')
                           ],
                           onTap: (value) {
                             setState(() {
