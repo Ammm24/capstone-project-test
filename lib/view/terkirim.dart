@@ -20,7 +20,7 @@ class terkirim_page extends StatelessWidget {
                     child: ListView.builder(
                       physics: const ScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: 3,
+                      itemCount: 1,
                       itemBuilder: (context, index) {
                         return Container(
                           padding: const EdgeInsets.only(
@@ -31,27 +31,39 @@ class terkirim_page extends StatelessWidget {
                           ),
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey)),
-                          child: const Column(
+                          child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
-                                height: 5,
+                              Image.asset(
+                                'assets/Contact.png',
+                                width: 45,
+                                height: 90,
                               ),
-                              Text('Keluhan Bullying'),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Saya telah menghubungi layanan pelanggan Anda beberapa kali, tetapi tidak ada tanggapan atau bantuan yang memadai terkait masalah dengan akun saya.',
-                                softWrap: true,
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              SizedBox(height: 30),
-                              Text(
-                                'Lihat Selengkapnya',
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontStyle: FontStyle.italic),
+                              const SizedBox(width: 15),
+                              const Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 20),
+                                    Text(
+                                      'Keluhan Layanan',
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      'Saya telah menghubungi layanan pelanggan Anda beberapa kali, tetapi tidak ada tanggapan atau bantuan yang memadai terkait masalah dengan akun saya.',
+                                      softWrap: true,
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                    SizedBox(height: 30),
+                                    Text(
+                                      'Lihat Selengkapnya',
+                                      style: TextStyle(
+                                          color: Colors.red,
+                                          fontStyle: FontStyle.italic),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

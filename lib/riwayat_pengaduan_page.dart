@@ -29,11 +29,11 @@ class _RiwayatPengaduan extends State<riwayat_pengaduan_page>
     super.initState();
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _controller.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -126,8 +126,8 @@ class _RiwayatPengaduan extends State<riwayat_pengaduan_page>
                           child: TabBarView(
                             controller: _controller,
                             children: const [
-                              diproses_page(),
                               terkirim_page(),
+                              diproses_page(),
                               selesai_page(),
                             ],
                           ),
