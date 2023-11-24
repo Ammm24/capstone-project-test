@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:praktikum/view/detail_pengaduan.dart';
 
 class terkirim_page extends StatelessWidget {
   const terkirim_page({super.key});
@@ -40,28 +41,39 @@ class terkirim_page extends StatelessWidget {
                                 height: 90,
                               ),
                               const SizedBox(width: 15),
-                              const Expanded(
+                              Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(height: 20),
-                                    Text(
+                                    const SizedBox(height: 20),
+                                    const Text(
                                       'Keluhan Layanan',
                                       style: TextStyle(fontSize: 18),
                                     ),
-                                    SizedBox(height: 10),
-                                    Text(
+                                    const SizedBox(height: 10),
+                                    const Text(
                                       'Saya telah menghubungi layanan pelanggan Anda beberapa kali, tetapi tidak ada tanggapan atau bantuan yang memadai terkait masalah dengan akun saya.',
                                       softWrap: true,
                                       style: TextStyle(color: Colors.grey),
                                     ),
-                                    SizedBox(height: 30),
-                                    Text(
-                                      'Lihat Selengkapnya',
-                                      style: TextStyle(
-                                          color: Colors.red,
-                                          fontStyle: FontStyle.italic),
+                                    const SizedBox(
+                                      height: 10,
                                     ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const detailPengaduan_page(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text(
+                                        'Lihat Selengkapnya',
+                                        style: TextStyle(color: Colors.red),
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),

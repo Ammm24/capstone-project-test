@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:praktikum/view/detail_pengaduan.dart';
 
 class diproses_page extends StatelessWidget {
   const diproses_page({super.key});
@@ -20,7 +21,7 @@ class diproses_page extends StatelessWidget {
                     child: ListView.builder(
                       physics: const ScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: 2,
+                      itemCount: 10,
                       itemBuilder: (context, index) {
                         return Container(
                           padding: const EdgeInsets.only(
@@ -40,28 +41,37 @@ class diproses_page extends StatelessWidget {
                                 height: 90,
                               ),
                               const SizedBox(width: 15),
-                              const Expanded(
+                              Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(height: 20),
-                                    Text(
+                                    const SizedBox(height: 20),
+                                    const Text(
                                       'Keluhan Infrastruktur',
                                       style: TextStyle(fontSize: 18),
                                     ),
-                                    SizedBox(height: 10),
-                                    Text(
+                                    const SizedBox(height: 10),
+                                    const Text(
                                       'Jalan di sekitar sini rusak parah! Banyak lubang bikin bahaya buat kendaraan. Tolong diperbaiki secepatnya dong biar nggak berisiko kecelakaan',
                                       softWrap: true,
                                       style: TextStyle(color: Colors.grey),
                                     ),
-                                    SizedBox(height: 30),
-                                    Text(
-                                      'Lihat Selengkapnya',
-                                      style: TextStyle(
-                                          color: Colors.red,
-                                          fontStyle: FontStyle.italic),
-                                    ),
+                                    const SizedBox(height: 10),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const detailPengaduan_page(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text(
+                                        'Lihat Selengkapnya',
+                                        style: TextStyle(color: Colors.red),
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),
