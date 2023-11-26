@@ -65,7 +65,7 @@ class terkirim_page extends StatelessWidget {
                                           context,
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                const detailPengaduan_page(),
+                                                detailPengaduan_page(),
                                           ),
                                         );
                                       },
