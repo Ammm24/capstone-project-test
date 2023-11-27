@@ -47,7 +47,7 @@ class selesai_page extends StatelessWidget {
                                   children: [
                                     const SizedBox(height: 20),
                                     const Text(
-                                      'Keluhan Layanan',
+                                      'Keluhan Kesusahan',
                                       style: TextStyle(fontSize: 18),
                                     ),
                                     const SizedBox(height: 10),

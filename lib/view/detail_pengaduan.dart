@@ -10,7 +10,6 @@ class detailPengaduan_page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         shadowColor: const Color.fromARGB(255, 192, 192, 192),
         backgroundColor: const Color.fromARGB(255, 255, 253, 253),
@@ -24,7 +23,7 @@ class detailPengaduan_page extends StatelessWidget {
               icon: const Icon(Icons.arrow_back),
               color: const Color.fromARGB(255, 255, 0, 0),
               onPressed: () {
-                Navigator.pop(context); // Replace onPressed callback
+                Navigator.pop(context);
               },
             ),
             const Text(
@@ -54,7 +53,7 @@ class detailPengaduan_page extends StatelessWidget {
                     ),
                     Image.asset(
                       'assets/Contact.png',
-                      width: 60,
+                      width: 50,
                       height: 130,
                     ),
                     const SizedBox(
